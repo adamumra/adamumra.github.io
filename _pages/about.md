@@ -10,15 +10,17 @@ redirect_from:
 
 <section class="profile" aria-labelledby="profile-name">
   <h1 id="profile-name">Adam Umra</h1>
-  <p class="profile-subtitle">Doctoral Researcher at Ruhr University Bochum</p>
+  <p class="profile-subtitle">PhD Student at Ruhr University Bochum</p>
   <div class="profile-intro">
     <div class="profile-copy">
-      <p>I am a doctoral researcher at the <a href="https://www.dks.ruhr-uni-bochum.de/">Chair of Digital Communication Systems</a> at <a href="https://www.ruhr-uni-bochum.de/en">Ruhr University Bochum</a>, Germany.</p>
+      <p>I am a PhD student at the <a href="https://www.dks.ruhr-uni-bochum.de/">Chair of Digital Communication Systems</a> at <a href="https://www.ruhr-uni-bochum.de/en">Ruhr University Bochum</a>, Germany.</p>
       <p>My research focuses on <strong>integrated sensing and communication (ISAC)</strong>, <strong>machine learning for signal processing</strong>, and <strong>localization and tracking</strong>. I work on cognitive radar, reconfigurable intelligent surfaces, and reliable wireless communication.</p>
       <p>I received my B.Sc. in 2021 and M.Sc. in 2023 in Electrical Engineering and Information Technology from Ruhr University Bochum.</p>
     </div>
     <figure class="profile-photo">
-      <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Adam Umra" width="8256" height="5504" fetchpriority="high">
+      <a class="profile-photo-link" href="{{ '/images/profile.jpg' | relative_url }}" aria-label="Open Adam Umra’s full-resolution portrait">
+        <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Adam Umra" width="8256" height="5504" fetchpriority="high">
+      </a>
       <figcaption>&copy; RUB, Marquard</figcaption>
     </figure>
   </div>
