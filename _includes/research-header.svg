@@ -1,0 +1,29 @@
+<svg class="research-graphic" viewBox="0 0 500 190" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+  <!-- Propagation, spatial samples, and a small connected learning graph. -->
+  <g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round">
+    <path d="M42 76a27 27 0 0 1 0 38" opacity=".9"/>
+    <path d="M57 57a54 54 0 0 1 0 76" opacity=".65"/>
+    <path d="M72 38a81 81 0 0 1 0 114" opacity=".35"/>
+    <path d="M126 95h53m104 0h26" stroke-dasharray="2 6" opacity=".4"/>
+    <!-- Explicit endpoints keep every connection aligned to a neuron. -->
+    <path d="M320 55L385 55 M320 55L385 95 M320 55L385 135
+             M320 95L385 55 M320 95L385 95 M320 95L385 135
+             M320 135L385 55 M320 135L385 95 M320 135L385 135
+             M385 55L450 95 M385 95L450 95 M385 135L450 95" opacity=".3"/>
+  </g>
+  <g fill="currentColor">
+    <circle cx="190" cy="65" r="2" opacity=".25"/><circle cx="214" cy="65" r="2.5" opacity=".5"/><circle cx="238" cy="65" r="3" opacity=".9"/><circle cx="262" cy="65" r="2" opacity=".3"/>
+    <circle cx="190" cy="85" r="2.5" opacity=".6"/><circle cx="214" cy="85" r="3" opacity=".9"/><circle cx="238" cy="85" r="2.5" opacity=".65"/><circle cx="262" cy="85" r="2" opacity=".45"/>
+    <circle cx="190" cy="105" r="2" opacity=".45"/><circle cx="214" cy="105" r="2.5" opacity=".65"/><circle cx="238" cy="105" r="3" opacity=".9"/><circle cx="262" cy="105" r="2.5" opacity=".6"/>
+    <circle cx="190" cy="125" r="2" opacity=".3"/><circle cx="214" cy="125" r="3" opacity=".9"/><circle cx="238" cy="125" r="2.5" opacity=".5"/><circle cx="262" cy="125" r="2" opacity=".25"/>
+  </g>
+  <g fill="var(--navy, #102e40)" stroke="currentColor" stroke-width="1.5">
+    <circle cx="320" cy="55" r="5"/><circle cx="320" cy="95" r="5"/><circle cx="320" cy="135" r="5"/>
+    <circle cx="385" cy="55" r="5"/><circle cx="385" cy="95" r="5"/><circle cx="385" cy="135" r="5"/>
+  </g>
+  <g fill="var(--amber, #e1b262)">
+    <circle cx="26" cy="95" r="4"/>
+    <circle cx="238" cy="85" r="3"/>
+    <circle cx="450" cy="95" r="5"/>
+  </g>
+</svg>
