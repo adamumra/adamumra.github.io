@@ -5,21 +5,25 @@
     <path d="M57 57a54 54 0 0 1 0 76" opacity=".65"/>
     <path d="M72 38a81 81 0 0 1 0 114" opacity=".35"/>
     <path d="M126 95h53m104 0h26" stroke-dasharray="2 6" opacity=".4"/>
-    <path d="M327 50l65 20m-65-20l65 50m-65-25l65-5m-65 5l65 45m-65-20l65-25m-65 25l65 25m-65 0l65-45m-65 45l65 5m-65 20l65-50m-65 50l65-20m0-50l66 25m-66 25l66-25" opacity=".36"/>
+    <!-- Explicit endpoints keep every connection aligned to a neuron. -->
+    <path d="M320 55L385 55 M320 55L385 95 M320 55L385 135
+             M320 95L385 55 M320 95L385 95 M320 95L385 135
+             M320 135L385 55 M320 135L385 95 M320 135L385 135
+             M385 55L450 95 M385 95L450 95 M385 135L450 95" opacity=".3"/>
   </g>
   <g fill="currentColor">
     <circle cx="190" cy="65" r="2" opacity=".25"/><circle cx="214" cy="65" r="2.5" opacity=".5"/><circle cx="238" cy="65" r="3" opacity=".9"/><circle cx="262" cy="65" r="2" opacity=".3"/>
     <circle cx="190" cy="85" r="2.5" opacity=".6"/><circle cx="214" cy="85" r="3" opacity=".9"/><circle cx="238" cy="85" r="2.5" opacity=".65"/><circle cx="262" cy="85" r="2" opacity=".45"/>
     <circle cx="190" cy="105" r="2" opacity=".45"/><circle cx="214" cy="105" r="2.5" opacity=".65"/><circle cx="238" cy="105" r="3" opacity=".9"/><circle cx="262" cy="105" r="2.5" opacity=".6"/>
     <circle cx="190" cy="125" r="2" opacity=".3"/><circle cx="214" cy="125" r="3" opacity=".9"/><circle cx="238" cy="125" r="2.5" opacity=".5"/><circle cx="262" cy="125" r="2" opacity=".25"/>
-    <circle cx="327" cy="50" r="3"/><circle cx="327" cy="75" r="3"/><circle cx="327" cy="100" r="3"/><circle cx="327" cy="125" r="3"/><circle cx="327" cy="150" r="3"/>
   </g>
   <g fill="var(--navy, #102e40)" stroke="currentColor" stroke-width="1.5">
-    <circle cx="392" cy="70" r="6"/><circle cx="392" cy="120" r="6"/>
+    <circle cx="320" cy="55" r="5"/><circle cx="320" cy="95" r="5"/><circle cx="320" cy="135" r="5"/>
+    <circle cx="385" cy="55" r="5"/><circle cx="385" cy="95" r="5"/><circle cx="385" cy="135" r="5"/>
   </g>
   <g fill="var(--amber, #e1b262)">
     <circle cx="26" cy="95" r="4"/>
     <circle cx="238" cy="85" r="3"/>
-    <circle cx="458" cy="95" r="5"/>
+    <circle cx="450" cy="95" r="5"/>
   </g>
 </svg>
