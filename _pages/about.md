@@ -11,7 +11,6 @@ redirect_from:
 <section class="profile" aria-labelledby="profile-name">
   <header class="profile-header">
     <div class="profile-heading">
-      <p class="research-eyebrow">Communication · Sensing · Machine learning</p>
       <h1 id="profile-name">Adam Umra</h1>
       <p class="profile-subtitle">PhD Student at Ruhr University Bochum</p>
     </div>
