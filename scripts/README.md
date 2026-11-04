@@ -22,3 +22,9 @@ Requirements:
 
 The output is byte-reproducible for a given Pillow/font version and is committed
 to the repo, so the build itself does not need Pillow.
+
+## `prepare-portrait.py`
+
+Exports lossless sRGB PNG portraits at 300, 600, and 900 pixels wide for the homepage’s responsive image. Converts the embedded source profile before high-quality downsampling and uses a fixed head-and-shoulders crop. The original `images/profile.jpg` is untouched and remains the full-resolution click destination.
+
+Run `python scripts/prepare-portrait.py` after replacing the source photograph. Requires Pillow with LittleCMS support (`python -m pip install Pillow`). Generated assets are committed, so Pages builds do not need Pillow.

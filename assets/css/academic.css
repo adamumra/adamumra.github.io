@@ -25,8 +25,8 @@ h1 { font-size: 2rem; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 .4
 .profile-subtitle { font-weight: 600; color: var(--muted); margin-bottom: 1.45rem; }
 .profile-intro { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 30px; align-items: start; }
 .profile-photo { margin: 0; }
-.profile-photo-link { display: block; height: 320px; overflow: hidden; border-radius: 10px; box-shadow: 0 8px 22px #162e4d1a; }
-.profile-photo img { display: block; width: 100%; height: 100%; object-fit: cover; object-position: 56% 30%; transform: scale(1.65); transform-origin: 56% 25%; }
+.profile-photo-link { display: block; overflow: hidden; border-radius: 10px; box-shadow: 0 8px 22px #162e4d1a; }
+.profile-photo img { display: block; width: 100%; height: auto; }
 .profile-photo figcaption { text-align: right; color: var(--muted); font-size: .68rem; margin-top: 5px; }
 .profile-links { justify-content: center; margin: 1rem 0 2.25rem; }
 .profile-links, .publication-links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 0; font-size: .94rem; }
