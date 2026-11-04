@@ -19,7 +19,10 @@ redirect_from:
     </div>
     <figure class="profile-photo">
       <a class="profile-photo-link" href="{{ '/images/profile.jpg' | relative_url }}" aria-label="Open Adam Umra’s full-resolution portrait">
-        <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Adam Umra" width="8256" height="5504" fetchpriority="high">
+        <img src="{{ '/images/portrait/profile-600.png' | relative_url }}"
+          srcset="{{ '/images/portrait/profile-300.png' | relative_url }} 300w, {{ '/images/portrait/profile-600.png' | relative_url }} 600w, {{ '/images/portrait/profile-900.png' | relative_url }} 900w"
+          sizes="(max-width: 700px) 270px, 300px"
+          alt="Adam Umra" width="300" height="320" fetchpriority="high">
       </a>
       <figcaption>&copy; RUB, Marquard</figcaption>
     </figure>
