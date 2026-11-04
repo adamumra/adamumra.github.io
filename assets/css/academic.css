@@ -150,3 +150,9 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
   :root, :root[data-theme="dark"] { color-scheme: light; --background: #fff; --surface: #fff; --ink: #173344; --muted: #596c76; --link: #0d756c; --line: #dfe8e7; --divider: #a8cec6; --badge-border: #cce1db; }
   .theme-toggle { display: none; }
 }
+
+/* A brief, staggered lift in cell intensity; no motion or continuous animation. */
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .research-graphic rect { transition: opacity 380ms ease; transition-delay: var(--cell-delay, 0ms); }
+  .research-graphic:hover rect { opacity: var(--hover-opacity); }
+}
