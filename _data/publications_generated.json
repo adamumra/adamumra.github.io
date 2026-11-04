@@ -63,32 +63,42 @@
     "sort_date": "2026-08-17"
   },
   {
-    "title": "Design and Practical Validation of a Novel Modulation Scheme for RIS Detection and Identification",
-    "authors": "Aymen Khaleel, Adam Umra, Aydin Sezgin",
-    "venue": "IEEE Wireless Communications Letters, vol. 15, pp. 4255–4259",
+    "title": "Measurement-Based Validation of Geometry-Driven RIS Beam Steering in Industrial Environments",
+    "authors": "Adam Umra, Simon Tewes, Niklas Beckmann, Niels König, Aydin Sezgin, Robert Schmitt",
+    "venue": "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)",
     "year": 2026,
-    "preprint_date": "2026-05-16",
+    "preprint_date": "2026-02-17",
     "links": [
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/2605.17009"
+        "url": "https://arxiv.org/abs/2602.15808"
       },
       {
         "label": "DOI",
-        "url": "https://doi.org/10.1109/lwc.2026.3715874"
+        "url": "https://doi.org/10.1109/eucnc/6gsummit68295.2026.11577477"
       },
       {
-        "label": "DOI",
-        "url": "https://doi.org/10.1109/LWC.2026.3715874"
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/11577477"
       }
     ],
+    "date": "2026-06-02",
+    "publisher_url": "https://ieeexplore.ieee.org/document/11577477/",
     "display_links": [
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/2605.17009"
+        "url": "https://arxiv.org/abs/2602.15808"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/11577477"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/11577477/"
       }
     ],
-    "sort_date": "2026-05-16"
+    "sort_date": "2026-06-02"
   },
   {
     "title": "RL-Aided Cognitive ISAC: Robust Detection and Sensing–Communication Trade-offs",
@@ -110,6 +120,8 @@
         "url": "https://link.springer.com/article/10.1186/s13638-026-02625-6"
       }
     ],
+    "preprint_date": "2025-11-04",
+    "publisher_url": "https://link.springer.com/10.1186/s13638-026-02625-6",
     "display_links": [
       {
         "label": "arXiv",
@@ -118,41 +130,85 @@
       {
         "label": "Journal",
         "url": "https://link.springer.com/article/10.1186/s13638-026-02625-6"
+      },
+      {
+        "label": "Journal",
+        "url": "https://link.springer.com/10.1186/s13638-026-02625-6"
       }
     ],
     "sort_date": "2026-05-12"
   },
   {
-    "title": "Measurement-Based Validation of Geometry-Driven RIS Beam Steering in Industrial Environments",
-    "authors": "Adam Umra, Simon Tewes, Niklas Beckmann, Niels König, Aydin Sezgin, Robert Schmitt",
-    "venue": "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)",
+    "title": "Hardware-Efficient Cognitive Radar: Multi-Target Detection with RL-Driven Transmissive RIS",
+    "authors": "Adam Umra, Aya Mostafa Ahmed, Stefan Roth, Aydin Sezgin",
+    "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)",
     "year": 2026,
-    "preprint_date": "2026-02-17",
+    "preprint_date": "2025-09-17",
     "links": [
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/2602.15808"
+        "url": "https://arxiv.org/abs/2509.14160"
       },
       {
         "label": "DOI",
-        "url": "https://doi.org/10.1109/eucnc/6gsummit68295.2026.11577477"
+        "url": "https://doi.org/10.1109/icassp55912.2026.11461307"
       },
       {
         "label": "IEEE Xplore",
-        "url": "https://ieeexplore.ieee.org/document/11577477"
+        "url": "https://ieeexplore.ieee.org/document/11461307"
       }
     ],
+    "date": "2026-05-03",
+    "publisher_url": "https://ieeexplore.ieee.org/document/11461307/",
     "display_links": [
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/2602.15808"
+        "url": "https://arxiv.org/abs/2509.14160"
       },
       {
         "label": "IEEE Xplore",
-        "url": "https://ieeexplore.ieee.org/document/11577477"
+        "url": "https://ieeexplore.ieee.org/document/11461307"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/11461307/"
       }
     ],
-    "sort_date": "2026-02-17"
+    "sort_date": "2026-05-03"
+  },
+  {
+    "title": "Design and Practical Validation of a Novel Modulation Scheme for RIS Detection and Identification",
+    "authors": "Aymen Khaleel, Adam Umra, Aydin Sezgin",
+    "venue": "IEEE Wireless Communications Letters, vol. 15, pp. 4255–4259",
+    "year": 2026,
+    "preprint_date": "2026-05-16",
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2605.17009"
+      },
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/lwc.2026.3715874"
+      },
+      {
+        "label": "DOI",
+        "url": "https://doi.org/10.1109/LWC.2026.3715874"
+      }
+    ],
+    "date": "2026",
+    "publisher_url": "https://ieeexplore.ieee.org/document/11618429/",
+    "display_links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2605.17009"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/11618429/"
+      }
+    ],
+    "sort_date": "2026"
   },
   {
     "title": "Short Blocks, Fast Sensing: Finite Blocklength Tradeoffs in RIS-Assisted ISAC",
@@ -176,36 +232,42 @@
     "sort_date": "2025-11-04"
   },
   {
-    "title": "Hardware-Efficient Cognitive Radar: Multi-Target Detection with RL-Driven Transmissive RIS",
-    "authors": "Adam Umra, Aya Mostafa Ahmed, Stefan Roth, Aydin Sezgin",
-    "venue": "IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)",
-    "year": 2026,
-    "preprint_date": "2025-09-17",
+    "title": "Towards Smarter Sensing: 2D Clutter Mitigation in RL-Driven Cognitive MIMO Radar",
+    "authors": "Adam Umra, Aya Mostafa Ahmed, Aydin Sezgin",
+    "venue": "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)",
+    "year": 2025,
+    "preprint_date": "2025-02-07",
     "links": [
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/2509.14160"
+        "url": "https://arxiv.org/abs/2502.04967"
       },
       {
         "label": "DOI",
-        "url": "https://doi.org/10.1109/icassp55912.2026.11461307"
+        "url": "https://doi.org/10.1109/eucnc/6gsummit63408.2025.11036963"
       },
       {
         "label": "IEEE Xplore",
-        "url": "https://ieeexplore.ieee.org/document/11461307"
+        "url": "https://ieeexplore.ieee.org/document/11036963"
       }
     ],
+    "date": "2025-06-03",
+    "publisher_url": "https://ieeexplore.ieee.org/document/11036963/",
     "display_links": [
       {
         "label": "arXiv",
-        "url": "https://arxiv.org/abs/2509.14160"
+        "url": "https://arxiv.org/abs/2502.04967"
       },
       {
         "label": "IEEE Xplore",
-        "url": "https://ieeexplore.ieee.org/document/11461307"
+        "url": "https://ieeexplore.ieee.org/document/11036963"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/11036963/"
       }
     ],
-    "sort_date": "2025-09-17"
+    "sort_date": "2025-06-03"
   },
   {
     "title": "Robust Communication Design in RIS-Assisted THz Channels",
@@ -231,6 +293,8 @@
         "url": "https://doi.org/10.1109/OJCOMS.2025.3541315"
       }
     ],
+    "preprint_date": "2024-11-15",
+    "publisher_url": "https://ieeexplore.ieee.org/document/10883649/",
     "display_links": [
       {
         "label": "arXiv",
@@ -239,41 +303,13 @@
       {
         "label": "IEEE Xplore",
         "url": "https://ieeexplore.ieee.org/document/10883649"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/10883649/"
       }
     ],
     "sort_date": "2025-02-12"
-  },
-  {
-    "title": "Towards Smarter Sensing: 2D Clutter Mitigation in RL-Driven Cognitive MIMO Radar",
-    "authors": "Adam Umra, Aya Mostafa Ahmed, Aydin Sezgin",
-    "venue": "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)",
-    "year": 2025,
-    "preprint_date": "2025-02-07",
-    "links": [
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/2502.04967"
-      },
-      {
-        "label": "DOI",
-        "url": "https://doi.org/10.1109/eucnc/6gsummit63408.2025.11036963"
-      },
-      {
-        "label": "IEEE Xplore",
-        "url": "https://ieeexplore.ieee.org/document/11036963"
-      }
-    ],
-    "display_links": [
-      {
-        "label": "arXiv",
-        "url": "https://arxiv.org/abs/2502.04967"
-      },
-      {
-        "label": "IEEE Xplore",
-        "url": "https://ieeexplore.ieee.org/document/11036963"
-      }
-    ],
-    "sort_date": "2025-02-07"
   },
   {
     "title": "Intermittency Versus Path Loss in RIS-aided THz Communication: A Data Significance Approach",
@@ -299,6 +335,8 @@
         "url": "https://doi.org/10.1109/ICC51166.2024.10622760"
       }
     ],
+    "date": "2024-06-09",
+    "publisher_url": "https://ieeexplore.ieee.org/document/10622760/",
     "display_links": [
       {
         "label": "arXiv",
@@ -307,8 +345,12 @@
       {
         "label": "IEEE Xplore",
         "url": "https://ieeexplore.ieee.org/document/10622760"
+      },
+      {
+        "label": "IEEE Xplore",
+        "url": "https://ieeexplore.ieee.org/document/10622760/"
       }
     ],
-    "sort_date": "2024-01-24"
+    "sort_date": "2024-06-09"
   }
 ]
