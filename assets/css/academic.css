@@ -1,6 +1,13 @@
 /* Styles for the academic profile. */
 :root {
   color-scheme: light;
+  --background: #fff;
+  --surface: #f2f6f5;
+  --divider: #a8cec6;
+  --scrollbar: #a6c8c1;
+  --scroll-track: #f1f6f4;
+  --badge-border: #cce1db;
+  --separator: #a4acb8;
   --ink: #173344;
   --muted: #596c76;
   --link: #0d756c;
@@ -9,14 +16,44 @@
   --teal: #79c6bb;
   --amber: #e1b262;
 }
+:root[data-theme="dark"] {
+  color-scheme: dark;
+  --background: #0b1822;
+  --surface: #102631;
+  --ink: #e3eeef;
+  --muted: #a9bdc4;
+  --link: #79c6bb;
+  --line: #29434b;
+  --divider: #426e6a;
+  --scrollbar: #5a8680;
+  --scroll-track: #102631;
+  --badge-border: #426e6a;
+  --separator: #728f98;
+}
+@media screen and (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+  color-scheme: dark;
+  --background: #0b1822;
+  --surface: #102631;
+  --ink: #e3eeef;
+  --muted: #a9bdc4;
+  --link: #79c6bb;
+  --line: #29434b;
+  --divider: #426e6a;
+  --scrollbar: #5a8680;
+  --scroll-track: #102631;
+  --badge-border: #426e6a;
+  --separator: #728f98;
+  }
+}
 * { box-sizing: border-box; }
 html { scroll-padding-top: 2rem; }
-body { margin: 0; background: #fff; color: var(--ink); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
+body { margin: 0; background: var(--background); color: var(--ink); font: 17px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif; }
 a { color: var(--link); text-decoration: none; text-underline-offset: 3px; }
 a:hover { text-decoration: underline; }
 a:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; border-radius: 2px; }
 p { margin: 0 0 1rem; }
-.skip-link { position: absolute; left: 1rem; top: -5rem; padding: .6rem 1rem; background: #fff; z-index: 2; }
+.skip-link { position: absolute; left: 1rem; top: -5rem; padding: .6rem 1rem; background: var(--background); z-index: 2; }
 .skip-link:focus { top: .5rem; }
 .site-header { border-bottom: 1px solid var(--line); }
 .site-nav { max-width: 1100px; margin: auto; min-height: 78px; padding: 12px 28px; display: flex; align-items: center; gap: 46px; }
@@ -33,10 +70,10 @@ h1 { font-size: 2rem; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 .4
 .profile-photo figcaption { text-align: right; color: var(--muted); font-size: .68rem; margin-top: 5px; }
 .profile-links { justify-content: center; margin: 1rem 0 2.25rem; }
 .profile-links, .publication-links { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: .25rem 0; font-size: .94rem; }
-.profile-links li + li::before, .publication-links li + li::before { content: "|"; color: #a4acb8; margin: 0 .65rem; }
+.profile-links li + li::before, .publication-links li + li::before { content: "|"; color: var(--separator); margin: 0 .65rem; }
 .section-heading { display: flex; align-items: center; gap: 18px; font-size: 1.5rem; line-height: 1.3; margin: 2.2rem 0 1.1rem; letter-spacing: -.015em; }
-.section-heading::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, #a8cec6, transparent); }
-.news-box { max-height: 260px; overflow-y: auto; overscroll-behavior-y: contain; padding: 0 12px 0 0; scrollbar-color: #a6c8c1 #f1f6f4; scrollbar-width: thin; }
+.section-heading::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--divider), transparent); }
+.news-box { max-height: 260px; overflow-y: auto; overscroll-behavior-y: contain; padding: 0 12px 0 0; scrollbar-color: var(--scrollbar) var(--scroll-track); scrollbar-width: thin; }
 .news-box:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
 .news-hint { text-align: right; color: var(--muted); font-size: .78rem; margin: -.4rem 0 .6rem; }
 .news-list { list-style: disc; padding: 0 0 0 1.25rem; margin: 0; }
@@ -52,12 +89,12 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
 .publication p { margin: .1rem 0; }
 .publication-authors, .publication-venue { font-size: .94rem; }
 .publication-venue { color: var(--muted); }
-.publication-status { font-size: .78rem; font-style: normal; border: 1px solid #cce1db; border-radius: 4px; padding: 1px 6px; margin-left: 5px; white-space: nowrap; }
+.publication-status { font-size: .78rem; font-style: normal; border: 1px solid var(--badge-border); border-radius: 4px; padding: 1px 6px; margin-left: 5px; white-space: nowrap; }
 .publication-links { margin: .3rem 0 0; }
 .experience-list li { margin-bottom: 1.4rem; }
 .experience-list p { margin: .15rem 0; }
 .experience-list .entry-meta { color: var(--muted); font-size: .88rem; margin-bottom: .2rem; }
-.site-footer { border-top: 1px solid var(--line); background: #f2f6f5; color: var(--muted); padding: 25px 28px; font-size: .78rem; }
+.site-footer { border-top: 1px solid var(--line); background: var(--surface); color: var(--muted); padding: 25px 28px; font-size: .78rem; }
 .site-footer > div { max-width: 904px; margin: auto; }
 .site-footer p { margin: 0 0 .2rem; }
 @media (max-width: 700px) {
@@ -103,4 +140,18 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
   .profile-header .profile-subtitle, .research-eyebrow { color: var(--ink); }
   .research-graphic { display: none; }
   .profile-header { grid-template-columns: 1fr; }
+}
+
+.theme-toggle { display: inline-flex; align-items: center; justify-content: center; gap: 7px; margin-left: auto; flex-shrink: 0; min-height: 40px; padding: 8px 12px; color: var(--ink); background: var(--background); border: 1px solid var(--line); border-radius: 8px; font: inherit; font-size: .8rem; cursor: pointer; }
+.theme-toggle[hidden] { display: none; }
+.theme-toggle:hover, .theme-toggle[aria-pressed="true"] { background: var(--surface); border-color: var(--link); }
+.theme-toggle:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+@media (max-width: 700px) {
+  .site-nav { display: grid; grid-template-columns: 1fr auto; gap: 14px 12px; }
+  .site-nav ul { grid-column: 1 / -1; grid-row: 2; }
+  .theme-toggle { grid-column: 2; grid-row: 1; margin-left: 0; padding: 8px 10px; }
+}
+@media print {
+  :root, :root[data-theme="dark"] { color-scheme: light; --background: #fff; --surface: #fff; --ink: #173344; --muted: #596c76; --link: #0d756c; --line: #dfe8e7; --divider: #a8cec6; --badge-border: #cce1db; }
+  .theme-toggle { display: none; }
 }

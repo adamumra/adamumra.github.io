@@ -14,6 +14,12 @@ A compact, responsive academic profile, built on the existing Jekyll/AcademicPag
 
 The existing portrait is displayed with its embedded credit, © RUB, Marquard. Unused template pages, sample collections, posts, and sample downloads remain in the repository but are excluded from the generated site. `/publications/` redirects to the homepage’s publication section.
 
+## Light and dark themes
+
+The navigation’s **Dark mode** button toggles the entire page. The initial theme follows the visitor’s system preference; an explicit choice is remembered in browser local storage and synchronized across open tabs. The control uses a native keyboard-accessible toggle button with `aria-pressed`. If browser storage is blocked, switching still works for the current page. Without JavaScript, CSS follows the system preference and hides the nonfunctional button. Printing uses a light background.
+
+Theme behavior is in `assets/js/academic-theme.js`, loaded before the stylesheet to apply a saved preference before painting. Colors are defined in `assets/css/academic.css`, including the CSS-only system-preference fallback.
+
 ## Content sources
 
 Content checked on 4 November 2026 against the [university profile](https://www.dks.ruhr-uni-bochum.de/de/profiles/adam-umra/), [LinkedIn profile](https://de.linkedin.com/in/adam-umra-704b941b2), author biography in [Robust Communication Design in RIS-Assisted THz Channels](https://doi.org/10.1109/OJCOMS.2025.3541315), and publisher/arXiv records linked with each paper. The [Google Scholar profile](https://scholar.google.com/citations?user=7jGnTxYAAAAJ&hl=de) was supplied by Adam. Scholar rate-limited automated reading; IEEE Xplore and LinkedIn also restricted direct access, so indexed university and publication records were used to cross-check details. Publication metadata refreshes from Crossref and arXiv; it does not scrape or synchronize with Google Scholar.
