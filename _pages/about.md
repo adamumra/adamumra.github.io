@@ -9,8 +9,14 @@ redirect_from:
 ---
 
 <section class="profile" aria-labelledby="profile-name">
-  <h1 id="profile-name">Adam Umra</h1>
-  <p class="profile-subtitle">PhD Student at Ruhr University Bochum</p>
+  <header class="profile-header">
+    <div class="profile-heading">
+      <p class="research-eyebrow">Communication · Sensing · Machine learning</p>
+      <h1 id="profile-name">Adam Umra</h1>
+      <p class="profile-subtitle">PhD Student at Ruhr University Bochum</p>
+    </div>
+    {% include research-header.svg %}
+  </header>
   <div class="profile-intro">
     <div class="profile-copy">
       <p>I am a PhD student at the <a href="https://www.dks.ruhr-uni-bochum.de/">Chair of Digital Communication Systems</a> at <a href="https://www.ruhr-uni-bochum.de/en">Ruhr University Bochum</a>, Germany, advised by <a href="https://www.dks.ruhr-uni-bochum.de/en/profiles/aydin-sezgin/">Prof. Aydin Sezgin</a>.</p>
