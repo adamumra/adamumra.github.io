@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include seo.html %}
     <link rel="icon" type="image/svg+xml" href="{{ '/images/favicon.svg' | relative_url }}">
-    <script src="{{ '/assets/js/academic-theme.js' | relative_url }}"></script>
-    <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}">
+    {% assign asset_version = site.time | date: '%s' %}
+    <script src="{{ '/assets/js/academic-theme.js' | relative_url }}?v={{ asset_version }}"></script>
+    <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}?v={{ asset_version }}">
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
