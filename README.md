@@ -10,7 +10,7 @@ A compact, responsive academic profile, built on the existing Jekyll/AcademicPag
 - Profile links and metadata: `_config.yml`.
 - Navigation: `_data/navigation.yml`.
 - Layout and styling: `_layouts/academic.html` and `assets/css/academic.css`.
-- Research header graphic: `_includes/research-header.svg`. The navy and teal palette is defined by the stylesheet’s color variables. The decorative SVG is a matrix pattern with varying cell intensities; it does not represent measured data. Hovering gently brightens its cells with a short, staggered fade, returning to the original pattern when the pointer leaves. This purely visual effect uses CSS only and is disabled for reduced-motion preferences and touch/coarse pointers.
+- Research header graphic: `_includes/research-header.svg`. The navy and teal palette is defined by the stylesheet’s color variables. The decorative SVG is a matrix pattern with varying cell intensities; it does not represent measured data. Hovering anywhere over the header brightens the matrix with a short, staggered fade, returning to the original pattern when the pointer leaves. This purely visual effect uses CSS only, supports mouse-equipped hybrid devices, and remains static on touch-only devices. Reduced-motion preferences receive an instant highlight without animated fading. Theme scripts and stylesheets use a build-version URL so deployments load the current assets.
 
 The existing portrait is displayed with its embedded credit, © RUB, Marquard. Unused template pages, sample collections, posts, and sample downloads remain in the repository but are excluded from the generated site. `/publications/` redirects to the homepage’s publication section.
 
