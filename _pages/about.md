@@ -18,7 +18,9 @@ redirect_from:
       <p>I received my B.Sc. in 2021 and M.Sc. in 2023 in Electrical Engineering and Information Technology from Ruhr University Bochum.</p>
     </div>
     <figure class="profile-photo">
-      <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Adam Umra" width="8256" height="5504" fetchpriority="high">
+      <a class="profile-photo-link" href="{{ '/images/profile.jpg' | relative_url }}" aria-label="Open Adam Umra’s full-resolution portrait">
+        <img src="{{ '/images/profile.jpg' | relative_url }}" alt="Adam Umra" width="8256" height="5504" fetchpriority="high">
+      </a>
       <figcaption>&copy; RUB, Marquard</figcaption>
     </figure>
   </div>

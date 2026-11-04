@@ -122,6 +122,36 @@ class PublicationsTests(unittest.TestCase):
         self.assertFalse(any('3715874' in link['url'] for link in paper['display_links']))
         self.assertIn('doi:10.1109/lwc.2026.3715874', sync.identifiers(paper))
 
+    def test_equivalent_ieee_and_springer_urls_collapse(self):
+        for urls, expected in [
+            (['https://ieeexplore.ieee.org/document/11577477',
+              'http://ieeexplore.ieee.org/document/11577477/',
+              'https://ieeexplore.ieee.org/abstract/document/11577477?utm_source=crossref',
+              'https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=11577477'],
+             'https://ieeexplore.ieee.org/document/11577477'),
+            (['https://link.springer.com/article/10.1186/s13638-026-02625-6',
+              'https://link.springer.com/10.1186/s13638-026-02625-6',
+              'https://link.springernature.com/article/10.1186/S13638-026-02625-6/',
+              'https://link.springer.com/content/pdf/10.1186/s13638-026-02625-6.pdf'],
+             'https://link.springer.com/article/10.1186/s13638-026-02625-6'),
+        ]:
+            with self.subTest(expected=expected):
+                paper = dict(PUBLISHED, links=[{'label': 'Paper', 'url': url} for url in urls], publisher_url=urls[-1])
+                sync.prepare_display(paper)
+                self.assertEqual([link['url'] for link in paper['display_links']], [expected])
+                first = copy.deepcopy(paper['display_links'])
+                sync.prepare_display(paper)
+                self.assertEqual(first, paper['display_links'])
+
+    def test_arxiv_versions_collapse_but_distinct_articles_remain(self):
+        urls = ['https://arxiv.org/abs/2511.02672v3', 'https://arxiv.org/pdf/2511.02672.pdf',
+                'https://ieeexplore.ieee.org/document/11577477',
+                'https://ieeexplore.ieee.org/document/11461307']
+        paper = dict(PUBLISHED, links=[{'label': 'Paper', 'url': url} for url in urls])
+        sync.prepare_display(paper)
+        self.assertEqual(len(paper['display_links']), 3)
+        self.assertEqual(paper['display_links'][0]['label'], 'arXiv')
+
     def test_outage_keeps_previous_records_and_applies_manual_edits(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)

@@ -180,6 +180,35 @@ def reconcile(previous, fetched, curated):
     return sorted(records, key=lambda p: (int(p['year']), p['sort_date'], normalized(p['title'])), reverse=True)
 
 
+def canonical_reading_link(link):
+    """Normalize equivalent reading URLs before deduplicating their labels."""
+    url = urllib.parse.urlsplit(link['url'])
+    if url.scheme not in ('http', 'https'):
+        return None
+    host = (url.hostname or '').lower()
+    path = urllib.parse.unquote(url.path).rstrip('/')
+    query = urllib.parse.parse_qs(url.query)
+    if host == 'ieeexplore.ieee.org':
+        document = re.search(r'/(?:abstract/)?document/(\d+)', path)
+        number = document[1] if document else query.get('arnumber', [''])[0]
+        if number.isdigit():
+            return {'label': 'IEEE Xplore', 'url': 'https://ieeexplore.ieee.org/document/' + number}
+    if host in ('link.springer.com', 'link.springernature.com'):
+        doi = re.search(r'(10\.(?:1186|1007)/.+)', path, re.I)
+        if doi:
+            identifier = re.sub(r'\.pdf$', '', doi[1], flags=re.I).lower()
+            return {'label': 'Journal', 'url': 'https://link.springer.com/article/' + identifier}
+    if host in ('arxiv.org', 'export.arxiv.org'):
+        identifier = re.sub(r'v\d+$', '', path.removeprefix('/abs/').removeprefix('/pdf/').removesuffix('.pdf'))
+        if re.fullmatch(r'\d{4}\.\d{4,5}', identifier):
+            return {'label': 'arXiv', 'url': 'https://arxiv.org/abs/' + identifier}
+    # Keep identity-bearing query parameters on other publisher pages.
+    params = [(key, value) for key, value in urllib.parse.parse_qsl(url.query)
+              if not key.lower().startswith('utm_')]
+    return {'label': link['label'], 'url': urllib.parse.urlunsplit(
+        ('https', host, path, urllib.parse.urlencode(params), ''))}
+
+
 def prepare_display(paper):
     """Retain DOI identifiers for matching, expose only reading destinations."""
     links = []
@@ -198,7 +227,8 @@ def prepare_display(paper):
         publisher = urllib.parse.urlunsplit(destination._replace(scheme='https'))
         label = 'IEEE Xplore' if destination.hostname == 'ieeexplore.ieee.org' else 'Journal' if 'journal' in paper['venue'].lower() else 'Paper'
         links.append({'label': label, 'url': publisher})
-    paper['display_links'] = list({link['url']: link for link in links}.values())
+    canonical = [canonical_reading_link(link) for link in links]
+    paper['display_links'] = list({link['url']: link for link in canonical if link}.values())
     paper['sort_date'] = paper.get('date') or paper.get('preprint_date') or str(paper['year'])
 
 
