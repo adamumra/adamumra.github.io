@@ -151,11 +151,7 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
   .theme-toggle { display: none; }
 }
 
-/* Highlight only the matrix cell directly under the pointer. */
-@media (any-hover: hover) and (any-pointer: fine) {
-  .research-graphic rect:hover { opacity: .95; }
-}
-/* Reduced-motion visitors receive the same highlight without animated fades. */
-@media (any-hover: hover) and (any-pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .research-graphic rect { transition: opacity 160ms ease; }
+/* Pointer-driven brightness only; reduced-motion settings apply instantly. */
+@media (prefers-reduced-motion: no-preference) {
+  .research-graphic rect { transition: opacity 120ms ease-out; }
 }
