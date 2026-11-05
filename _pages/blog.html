@@ -1,0 +1,29 @@
+---
+layout: academic
+title: Blog
+permalink: /blog/
+description: Visual explanations of my research in radar, communication, and machine learning.
+blog_styles: true
+---
+<header class="blog-heading">
+  <p class="eyebrow">Notes from my research</p>
+  <h1>Blog</h1>
+  <p>Ideas in radar, communication, and machine learning—explained through pictures, intuition, and a little interaction.</p>
+</header>
+<div class="blog-list">
+  {% assign articles = site.blog_articles | sort: 'date' | reverse %}
+  {% for article in articles %}
+  <article class="blog-card">
+    <a class="blog-cover" href="{{ article.url | relative_url }}" aria-label="Read {{ article.title | escape }}">
+      <img src="{{ article.cover | relative_url }}" alt="{{ article.cover_alt | escape }}" width="640" height="320">
+    </a>
+    <div>
+      <p class="article-meta"><time datetime="{{ article.date | date_to_xmlschema }}">{{ article.date | date: '%B %-d, %Y' }}</time> · Research explainer</p>
+      <h2><a href="{{ article.url | relative_url }}">{{ article.title }}</a></h2>
+      <p>{{ article.description }}</p>
+      <p class="blog-tags">{{ article.topics | escape }}</p>
+      <a href="{{ article.url | relative_url }}">Read article →</a>
+    </div>
+  </article>
+  {% endfor %}
+</div>
