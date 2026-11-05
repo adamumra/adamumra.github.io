@@ -11,7 +11,7 @@ blog_styles: true
   <p>Ideas in radar, communication, and machine learning—explained through pictures, intuition, and a little interaction.</p>
 </header>
 <div class="blog-list">
-  {% assign articles = site.blog_articles | sort: 'date' | reverse %}
+  {% assign articles = site.blog_articles | where_exp: 'article', 'article.published != false' | sort: 'date' | reverse %}
   {% for article in articles %}
   <article class="blog-card">
     <a class="blog-cover" href="{{ article.url | relative_url }}" aria-label="Read {{ article.title | escape }}">
@@ -25,5 +25,7 @@ blog_styles: true
       <a href="{{ article.url | relative_url }}">Read article →</a>
     </div>
   </article>
+  {% else %}
+  <p class="section-intro">New articles coming soon.</p>
   {% endfor %}
 </div>
