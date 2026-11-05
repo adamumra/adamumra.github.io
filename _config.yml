@@ -249,6 +249,9 @@ kramdown:
 
 # These settings control the types of collections used by the template
 collections:
+  blog_articles:
+    output: true
+    permalink: /blog/:path/
   teaching:
     output: false
     permalink: /:collection/:path/

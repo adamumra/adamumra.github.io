@@ -14,6 +14,12 @@ A compact, responsive academic profile, built on the existing Jekyll/AcademicPag
 
 The existing portrait is displayed with its embedded credit, © RUB, Marquard. Unused template pages, sample collections, posts, and sample downloads remain in the repository but are excluded from the generated site. `/publications/` redirects to the homepage’s publication section.
 
+## Blog
+
+The blog index is at `/blog/`. Articles live in `_blog_articles/`, a separate Jekyll collection so the old template `_posts/` examples stay excluded. To add an article, create a Markdown file with `layout: blog-article`, `title`, `subtitle`, `description`, `date`, `cover`, `cover_alt`, `topic`, `topics`, and `blog_styles: true` in its front matter. `paper_url` adds an optional paper link. The filename determines `/blog/<filename>/`.
+
+The first article enables `blog_interactive: true` for `assets/js/spectrum-story.js`. Its inline SVG figures in `_includes/blog/` remain visible without JavaScript; controls appear only when initialized. Curves are schematic Gaussian/noise illustrations, not MUSIC calculations or diffusion-model outputs. The numerical results table is explicitly sourced to the paper. Keep those distinctions when editing. Blog styles use the existing light/dark theme variables.
+
 ## Light and dark themes
 
 The navigation’s **Dark mode** button toggles the entire page. The initial theme follows the visitor’s system preference; an explicit choice is remembered in browser local storage and synchronized across open tabs. The control uses a native keyboard-accessible toggle button with `aria-pressed`. If browser storage is blocked, switching still works for the current page. Without JavaScript, CSS follows the system preference and hides the nonfunctional button. Printing uses a light background.

@@ -8,6 +8,12 @@
     {% assign asset_version = site.time | date: '%s' %}
     <script src="{{ '/assets/js/academic-theme.js' | relative_url }}?v={{ asset_version }}"></script>
     <link rel="stylesheet" href="{{ '/assets/css/academic.css' | relative_url }}?v={{ asset_version }}">
+    {% if page.blog_styles %}
+    <link rel="stylesheet" href="{{ '/assets/css/blog.css' | relative_url }}?v={{ asset_version }}">
+    {% endif %}
+    {% if page.blog_interactive %}
+    <script defer src="{{ '/assets/js/spectrum-story.js' | relative_url }}?v={{ asset_version }}"></script>
+    {% endif %}
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
