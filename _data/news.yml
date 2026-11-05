@@ -1,7 +1,4 @@
 # Dates describe public updates, not inferred presentation dates.
-- date: "2026-11-05"
-  label: "Nov. 2026"
-  text: "New blog post: [Sharper Angles Without More Antennas](/blog/generative-large-array-emulation/) — an interactive introduction to our work on conditional spectrum diffusion for radar angle estimation."
 - date: "2026-10-30"
   label: "Oct. 2026"
   text: "New preprint on [wideband channel measurements in the lower FR3 band](https://arxiv.org/abs/2611.00426) for industrial environments."

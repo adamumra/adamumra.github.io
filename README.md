@@ -18,6 +18,8 @@ The existing portrait is displayed with its embedded credit, © RUB, Marquard. U
 
 The blog index is at `/blog/`. Articles live in `_blog_articles/`, a separate Jekyll collection so the old template `_posts/` examples stay excluded. To add an article, create a Markdown file with `layout: blog-article`, `title`, `subtitle`, `description`, `date`, `cover`, `cover_alt`, `topic`, `topics`, and `blog_styles: true` in its front matter. `paper_url` adds an optional paper link. The filename determines `/blog/<filename>/`.
 
+Set `published: false` in an article’s front matter to temporarily hide it from the blog and omit its generated page. Remove any corresponding News announcement when hiding an article. To reactivate it, set `published: true` and restore its News entry.
+
 The first article enables `blog_interactive: true` for `assets/js/spectrum-story.js`. Its inline SVG figures in `_includes/blog/` remain visible without JavaScript; controls appear only when initialized. Curves are schematic Gaussian/noise illustrations, not MUSIC calculations or diffusion-model outputs. The numerical results table is explicitly sourced to the paper. Keep those distinctions when editing. Blog styles use the existing light/dark theme variables.
 
 ## Light and dark themes
