@@ -14,7 +14,6 @@ redirect_from:
       <h1 id="profile-name">Adam Umra</h1>
       <p class="profile-subtitle">PhD Student at Ruhr University Bochum</p>
     </div>
-    {% include research-header.svg %}
   </header>
   <div class="profile-intro">
     <div class="profile-copy">

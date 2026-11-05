@@ -119,21 +119,17 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
 .experience-subheading { font-size: 1.2rem; margin: 1.8rem 0 1rem; }
 .entry-organization { font-weight: 600; }
 
-/* A quiet matrix texture gives the header a research identity. */
-.profile-header { display: grid; grid-template-columns: minmax(0, 1fr) 154px; align-items: center; gap: 40px; padding: 30px 32px; margin: 0 0 30px; border-radius: 14px; background: var(--navy); color: #f5faf8; }
+/* Text-only profile header. */
+.profile-header { padding: 30px 32px; margin: 0 0 30px; border-radius: 14px; background: var(--navy); color: #f5faf8; }
 .profile-heading { min-width: 0; }
 .profile-header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -.035em; }
 .profile-header .profile-subtitle { color: #c7d9de; margin: 10px 0 0; font-size: .88rem; font-weight: 400; }
-.research-graphic { display: block; width: 154px; max-width: 100%; height: auto; color: var(--teal); justify-self: end; }
 @media (max-width: 700px) {
-  .profile-header { grid-template-columns: 1fr; padding: 24px 22px 16px; gap: 10px; margin-bottom: 26px; }
+  .profile-header { padding: 24px 22px 16px; gap: 10px; margin-bottom: 26px; }
   .profile-header h1 { font-size: 2.2rem; }
-  .research-graphic { width: 126px; margin: 6px auto 0; justify-self: center; }
 }
 @media print {
   .profile-header { background: #fff; color: var(--ink); border: 1px solid var(--line); }
-  .research-graphic { display: none; }
-  .profile-header { grid-template-columns: 1fr; }
   .profile-header .profile-subtitle { color: var(--ink); }
 }
 
@@ -149,9 +145,4 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
 @media print {
   :root, :root[data-theme="dark"] { color-scheme: light; --background: #fff; --surface: #fff; --ink: #173344; --muted: #596c76; --link: #0d756c; --line: #dfe8e7; --divider: #a8cec6; --badge-border: #cce1db; }
   .theme-toggle { display: none; }
-}
-
-/* Pointer-driven brightness only; reduced-motion settings apply instantly. */
-@media (prefers-reduced-motion: no-preference) {
-  .research-graphic rect { transition: opacity 120ms ease-out; }
 }

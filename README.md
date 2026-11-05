@@ -10,7 +10,7 @@ A compact, responsive academic profile, built on the existing Jekyll/AcademicPag
 - Profile links and metadata: `_config.yml`.
 - Navigation: `_data/navigation.yml`.
 - Layout and styling: `_layouts/academic.html` and `assets/css/academic.css`.
-- Research header graphic: `_includes/research-header.svg`. The navy and teal palette is defined by the stylesheet’s color variables. The decorative SVG is a matrix pattern with varying cell intensities; it does not represent measured data. The resting matrix tones down its brighter cells. Inside the matrix, a small, soft spotlight follows the pointer: nearby cells brighten and the surrounding matrix dims. Leaving restores the toned-down resting pattern. `assets/js/matrix-spotlight.js` updates brightness only in response to pointer events, supports mouse-equipped hybrid devices, and leaves touch input and no-JavaScript views static. Reduced-motion preferences receive an instant highlight without animated fading. Theme scripts and stylesheets use a build-version URL so deployments load the current assets.
+- Palette: the navy and teal colors are defined in `assets/css/academic.css`.
 
 The existing portrait is displayed with its embedded credit, © RUB, Marquard. Unused template pages, sample collections, posts, and sample downloads remain in the repository but are excluded from the generated site. `/publications/` redirects to the homepage’s publication section.
 
