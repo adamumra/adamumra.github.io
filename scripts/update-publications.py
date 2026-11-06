@@ -223,23 +223,6 @@ def select_publications(records):
         paper['selected'] = paper in chosen
 
 
-def research_sketch(paper):
-    """Topic-based originals, with a neutral diagram for new research areas."""
-    allowed = {'aperture', 'beam', 'detection', 'denoising', 'signal'}
-    if paper.get('sketch') in allowed:
-        return paper['sketch']
-    title = paper['title'].casefold()
-    if any(word in title for word in ('denois', 'noise2noise', 'spectroscopy')):
-        return 'denoising'
-    if any(word in title for word in ('array emulation', 'large-array', 'doa estimation')):
-        return 'aperture'
-    if any(word in title for word in ('radar', 'sensing', 'clutter')):
-        return 'detection'
-    if any(word in title for word in ('ris', 'channel', 'beam', 'communication')):
-        return 'beam'
-    return 'signal'
-
-
 def canonical_reading_link(link):
     """Normalize equivalent reading URLs before deduplicating their labels."""
     url = urllib.parse.urlsplit(link['url'])
@@ -290,7 +273,7 @@ def prepare_display(paper):
     canonical = [canonical_reading_link(link) for link in links]
     paper['display_links'] = list({link['url']: link for link in canonical if link}.values())
     paper['sort_date'] = paper.get('date') or paper.get('preprint_date') or str(paper['year'])
-    paper['sketch'] = research_sketch(paper)
+    paper.pop('sketch', None)  # Drop legacy display-only illustration metadata.
 
 
 def main():

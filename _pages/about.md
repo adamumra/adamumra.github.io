@@ -56,20 +56,13 @@ redirect_from:
 <section aria-labelledby="publications">
   <h2 id="publications" class="section-heading">Selected publications</h2>
   <p class="section-intro">See all publications on <a href="{{ site.author.googlescholar | escape }}">Google Scholar</a>.</p>
-  {% assign publications = site.data.publications_generated | where: 'selected', true %}
-  {% assign publication_years = publications | group_by: 'year' | sort: 'name' | reverse %}
-  {% for year in publication_years %}
-  <section class="publication-year" aria-labelledby="publications-{{ year.name }}">
-    <h3 id="publications-{{ year.name }}" class="publication-year-heading">{{ year.name }}</h3>
-    <ol class="publication-list">
-    {% assign papers = year.items | sort: 'sort_date' | reverse %}
-    {% for paper in papers %}
+  {% assign publications = site.data.publications_generated | where: 'selected', true | sort: 'sort_date' | reverse %}
+  <ol class="publication-list">
+    {% for paper in publications %}
     <li class="publication">
-      {% include research-sketch.html kind=paper.sketch %}
-      <div class="publication-copy">
-      <h4>{{ paper.title | escape }}</h4>
+      <h3>{{ paper.title | escape }}</h3>
       <p class="publication-authors">{{ paper.authors | escape | replace: 'Adam Umra', '<strong>Adam Umra</strong>' }}</p>
-      <p class="publication-venue"><em>{{ paper.venue | escape }}</em> · {{ paper.year }}{% if paper.status %} <span class="publication-status publication-status--{{ paper.status | slugify }}">{{ paper.status }}</span>{% endif %}</p>
+      <p class="publication-venue"><em>{{ paper.venue | escape }}</em>{% if paper.status %} <span class="publication-status publication-status--{{ paper.status | slugify }}">{{ paper.status }}</span>{% endif %}</p>
       <ul class="publication-links" aria-label="Links for {{ paper.title | escape }}">
         {% assign reading_links = paper.display_links | default: paper.links %}
         {% for link in reading_links %}
@@ -78,12 +71,9 @@ redirect_from:
         {% endunless %}
         {% endfor %}
       </ul>
-      </div>
     </li>
     {% endfor %}
-    </ol>
-  </section>
-  {% endfor %}
+  </ol>
 </section>
 
 <section aria-labelledby="experience">
