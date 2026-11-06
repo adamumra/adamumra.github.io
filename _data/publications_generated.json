@@ -66,7 +66,7 @@
     ],
     "sort_date": "2026-08-17",
     "sketch": "denoising",
-    "selected": true
+    "selected": false
   },
   {
     "title": "Measurement-Based Validation of Geometry-Driven RIS Beam Steering in Industrial Environments",
@@ -88,6 +88,9 @@
         "url": "https://ieeexplore.ieee.org/document/11577477"
       }
     ],
+    "citation_count": 0,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "date": "2026-06-02",
     "publisher_url": "https://ieeexplore.ieee.org/document/11577477/",
     "display_links": [
@@ -102,7 +105,7 @@
     ],
     "sort_date": "2026-06-02",
     "sketch": "beam",
-    "selected": true
+    "selected": false
   },
   {
     "title": "RL-Aided Cognitive ISAC: Robust Detection and Sensing–Communication Trade-offs",
@@ -124,6 +127,9 @@
         "url": "https://link.springer.com/article/10.1186/s13638-026-02625-6"
       }
     ],
+    "citation_count": 2,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "preprint_date": "2025-11-04",
     "publisher_url": "https://link.springer.com/10.1186/s13638-026-02625-6",
     "display_links": [
@@ -160,6 +166,9 @@
         "url": "https://ieeexplore.ieee.org/document/11461307"
       }
     ],
+    "citation_count": 0,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "date": "2026-05-03",
     "publisher_url": "https://ieeexplore.ieee.org/document/11461307/",
     "display_links": [
@@ -196,6 +205,9 @@
         "url": "https://doi.org/10.1109/LWC.2026.3715874"
       }
     ],
+    "citation_count": 0,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "date": "2026",
     "publisher_url": "https://ieeexplore.ieee.org/document/11618429/",
     "display_links": [
@@ -255,6 +267,9 @@
         "url": "https://ieeexplore.ieee.org/document/11036963"
       }
     ],
+    "citation_count": 2,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "date": "2025-06-03",
     "publisher_url": "https://ieeexplore.ieee.org/document/11036963/",
     "display_links": [
@@ -295,6 +310,9 @@
         "url": "https://doi.org/10.1109/OJCOMS.2025.3541315"
       }
     ],
+    "citation_count": 13,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "preprint_date": "2024-11-15",
     "publisher_url": "https://ieeexplore.ieee.org/document/10883649/",
     "display_links": [
@@ -309,7 +327,7 @@
     ],
     "sort_date": "2025-02-12",
     "sketch": "beam",
-    "selected": false
+    "selected": true
   },
   {
     "title": "Intermittency Versus Path Loss in RIS-aided THz Communication: A Data Significance Approach",
@@ -335,6 +353,9 @@
         "url": "https://doi.org/10.1109/ICC51166.2024.10622760"
       }
     ],
+    "citation_count": 4,
+    "citation_source": "Crossref",
+    "citation_checked": "2026-11-06",
     "date": "2024-06-09",
     "publisher_url": "https://ieeexplore.ieee.org/document/10622760/",
     "display_links": [
@@ -349,6 +370,6 @@
     ],
     "sort_date": "2024-06-09",
     "sketch": "beam",
-    "selected": false
+    "selected": true
   }
 ]
