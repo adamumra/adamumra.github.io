@@ -89,6 +89,8 @@ jobs:
 
   # Deployment job
   deploy:
+    # Allow time for Pages queueing and file synchronization.
+    timeout-minutes: 35
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -98,3 +100,6 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
+        with:
+          # Milliseconds: the default 10-minute limit canceled slow deployments.
+          timeout: 1800000

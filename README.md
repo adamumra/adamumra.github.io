@@ -167,3 +167,7 @@ Unfortunately, one logistical issue with a template theme like Academic Pages th
 [![GitHub stars](https://img.shields.io/github/stars/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io)
 [![GitHub forks](https://img.shields.io/github/forks/academicpages/academicpages.github.io)](https://github.com/academicpages/academicpages.github.io/fork)
 </div>
+
+## Pages deployment delays
+
+The deployment action waits up to 30 minutes for GitHub Pages to finish queueing, synchronizing files, and updating the site. The deploy job has a 35-minute limit to leave room for runner setup and cleanup. A successful build followed by a timeout in `deployment_queued`, `syncing_files`, or `updating_pages` indicates that Pages did not finish within the allotted time; increasing the timeout does not repair a stalled Pages service. Check the deployment logs and GitHub Status before retrying.
