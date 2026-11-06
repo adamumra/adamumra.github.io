@@ -169,5 +169,106 @@ class PublicationsTests(unittest.TestCase):
             self.assertEqual(result[0]['venue'], 'Journal of Signals')
 
 
+class SelectionTests(unittest.TestCase):
+    @staticmethod
+    def paper(title, date, count=None):
+        result = dict(PUBLISHED, title=title, year=int(date[:4]), date=date,
+                      links=[{'label': 'DOI', 'url': 'https://doi.org/10.1234/' + title.lower()}])
+        if count is not None:
+            result.update(citation_count=count, citation_source='Crossref', citation_checked='2026-11-06')
+        return result
+
+    def selected(self, papers, fetched=None, curated=None):
+        return [p for p in sync.reconcile(papers, fetched or [], curated or []) if p['selected']]
+
+    def test_latest_two_and_three_remaining_cited_are_unique(self):
+        papers = [self.paper('Newest', '2026-11-01', 100),
+                  self.paper('Recent', '2026-10-01'),
+                  self.paper('Third', '2026-09-01', 1),
+                  self.paper('Older', '2025-07-01', 30),
+                  self.paper('Oldest', '2024-06-01', 50),
+                  self.paper('Other', '2025-02-01', 20)]
+        result = self.selected(papers)
+        self.assertEqual([p['title'] for p in result], ['Newest', 'Recent', 'Older', 'Other', 'Oldest'])
+        # The preprint and its published version count as one work.
+        duplicate = dict(papers[-1], title='Other revised', preprint_date='2024-12-01', status='Preprint')
+        result = self.selected(papers + [duplicate])
+        self.assertEqual(len(result), 5)
+        self.assertEqual(len({next(iter(p['links']))['url'] for p in result}), 5)
+
+    def test_citation_ties_use_date_then_alphabetical_title(self):
+        papers = [self.paper('Newest', '2026-11-01'), self.paper('Recent', '2026-10-01'),
+                  self.paper('Zebra', '2025-01-01', 10), self.paper('Alpha', '2025-01-01', 10),
+                  self.paper('Beta', '2025-01-01', 10), self.paper('Later', '2025-02-01', 10)]
+        titles = {p['title'] for p in self.selected(list(reversed(papers)))}
+        self.assertEqual(titles, {'Newest', 'Recent', 'Alpha', 'Beta', 'Later'})
+
+    def test_zero_is_ranked_and_missing_counts_fill_by_date(self):
+        papers = [self.paper('Newest', '2026-11-01'), self.paper('Recent', '2026-10-01'),
+                  self.paper('UnknownA', '2026-09-01'), self.paper('UnknownB', '2026-08-01'),
+                  self.paper('UnknownC', '2026-07-01'), self.paper('KnownZero', '2025-01-01', 0)]
+        self.assertEqual({p['title'] for p in self.selected(papers)},
+                         {'Newest', 'Recent', 'UnknownA', 'UnknownB', 'KnownZero'})
+        for count in [None, -1, '10', True]:
+            papers[-1]['citation_count'] = count
+            self.assertNotIn('KnownZero', {p['title'] for p in self.selected(papers)})
+
+    def test_newest_uses_effective_date_not_future_venue_year(self):
+        accepted = self.paper('Accepted', '2025-11-01', 0)
+        accepted.update(year=2027, status='Accepted')
+        papers = [accepted] + [self.paper(f'Paper{i}', f'2026-0{i}-01', i) for i in range(1, 7)]
+        self.assertTrue({'Paper6', 'Paper5'} <= {p['title'] for p in self.selected(papers)})
+
+    def test_small_archive_and_hidden_records(self):
+        papers = [self.paper('One', '2025-01-01', 9), self.paper('Two', '2025-02-01', 4)]
+        self.assertEqual(len(self.selected(papers)), 2)
+        result = self.selected(papers, curated=[dict(papers[0], hidden=True)])
+        self.assertEqual([p['title'] for p in result], ['Two'])
+
+    def test_fresh_zero_overrides_cached_count_and_survives_curated_merge(self):
+        old = self.paper('Paper', '2025-01-01', 40)
+        fresh = self.paper('Paper', '2025-01-01', 0)
+        fresh['citation_checked'] = '2026-11-07'
+        manual = self.paper('Paper', '2025-01-01')
+        manual.update(venue='Edited venue', status='Accepted')
+        preprint = dict(manual, status='Preprint')
+        result = sync.reconcile([old], [fresh, preprint], [manual])[0]
+        self.assertEqual(result['citation_count'], 0)
+        self.assertEqual(result['citation_checked'], '2026-11-07')
+        self.assertEqual(result['citation_source'], 'Crossref')
+        self.assertEqual(result['status'], 'Accepted')
+        self.assertEqual(result['venue'], 'Edited venue')
+
+    def test_missing_count_and_outage_keep_cached_ranking(self):
+        papers = [self.paper(f'Paper{i}', f'2026-0{i}-01', 10 - i) for i in range(1, 7)]
+        first = sync.reconcile(papers, [], [])
+        fetched = self.paper('Paper1', '2026-01-01')
+        second = sync.reconcile(first, [fetched], [dict(fetched, venue='Curated')])
+        self.assertEqual({p['title'] for p in first if p['selected']},
+                         {p['title'] for p in second if p['selected']})
+        self.assertEqual(next(p for p in second if p['title'] == 'Paper1')['citation_count'], 9)
+        self.assertEqual(second, sync.reconcile(second, [], []))
+
+    def test_crossref_extracts_only_valid_counts(self):
+        item = {'title': ['A paper'], 'DOI': '10.1234/test', 'type': 'journal-article',
+                'author': [{'given': 'Adam', 'family': 'Umra'}], 'published': {'date-parts': [[2026]]}}
+        for count in [0, 17, None, -1, '17', True]:
+            with self.subTest(count=count):
+                record = sync.crossref_records({'message': {'items': [dict(item, **{'is-referenced-by-count': count})]}})[0]
+                if type(count) is int and count >= 0:
+                    self.assertEqual(record['citation_count'], count)
+                    self.assertEqual(record['citation_source'], 'Crossref')
+                    self.assertRegex(record['citation_checked'], r'^\d{4}-\d{2}-\d{2}$')
+                else:
+                    self.assertNotIn('citation_count', record)
+
+    def test_unknown_research_gets_neutral_sketch(self):
+        self.assertEqual(sync.research_sketch({'title': 'A new research direction'}), 'signal')
+        self.assertEqual(sync.research_sketch({'title': 'Conditional Diffusion for Large-Array Emulation'}), 'aperture')
+        self.assertEqual(sync.research_sketch({'title': 'Noise2Noise denoising'}), 'denoising')
+        self.assertEqual(sync.research_sketch({'title': 'Radar detection'}), 'detection')
+        self.assertEqual(sync.research_sketch({'title': 'RIS beam steering'}), 'beam')
+
+
 if __name__ == '__main__':
     unittest.main()

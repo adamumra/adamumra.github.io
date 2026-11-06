@@ -18,7 +18,9 @@
         "url": "https://arxiv.org/abs/2611.00426"
       }
     ],
-    "sort_date": "2026-10-30"
+    "sort_date": "2026-10-30",
+    "sketch": "beam",
+    "selected": true
   },
   {
     "title": "Generative Large-Array Emulation for DOA Estimation in MIMO Radar via Conditional Diffusion",
@@ -39,7 +41,9 @@
         "url": "https://arxiv.org/abs/2609.30562"
       }
     ],
-    "sort_date": "2026-09-24"
+    "sort_date": "2026-09-24",
+    "sketch": "aperture",
+    "selected": true
   },
   {
     "title": "Self-Supervised Noise2Noise-Enhanced Denoising for Continuous-Scan Air-Plasma THz Spectroscopy",
@@ -60,7 +64,9 @@
         "url": "https://arxiv.org/abs/2608.16454"
       }
     ],
-    "sort_date": "2026-08-17"
+    "sort_date": "2026-08-17",
+    "sketch": "denoising",
+    "selected": true
   },
   {
     "title": "Measurement-Based Validation of Geometry-Driven RIS Beam Steering in Industrial Environments",
@@ -94,7 +100,9 @@
         "url": "https://ieeexplore.ieee.org/document/11577477"
       }
     ],
-    "sort_date": "2026-06-02"
+    "sort_date": "2026-06-02",
+    "sketch": "beam",
+    "selected": true
   },
   {
     "title": "RL-Aided Cognitive ISAC: Robust Detection and Sensing–Communication Trade-offs",
@@ -128,7 +136,9 @@
         "url": "https://link.springer.com/article/10.1186/s13638-026-02625-6"
       }
     ],
-    "sort_date": "2026-05-12"
+    "sort_date": "2026-05-12",
+    "sketch": "detection",
+    "selected": true
   },
   {
     "title": "Hardware-Efficient Cognitive Radar: Multi-Target Detection with RL-Driven Transmissive RIS",
@@ -162,7 +172,9 @@
         "url": "https://ieeexplore.ieee.org/document/11461307"
       }
     ],
-    "sort_date": "2026-05-03"
+    "sort_date": "2026-05-03",
+    "sketch": "detection",
+    "selected": false
   },
   {
     "title": "Design and Practical Validation of a Novel Modulation Scheme for RIS Detection and Identification",
@@ -196,7 +208,9 @@
         "url": "https://ieeexplore.ieee.org/document/11618429"
       }
     ],
-    "sort_date": "2026"
+    "sort_date": "2026",
+    "sketch": "beam",
+    "selected": false
   },
   {
     "title": "Short Blocks, Fast Sensing: Finite Blocklength Tradeoffs in RIS-Assisted ISAC",
@@ -217,7 +231,9 @@
         "url": "https://arxiv.org/abs/2511.02673"
       }
     ],
-    "sort_date": "2025-11-04"
+    "sort_date": "2025-11-04",
+    "sketch": "detection",
+    "selected": false
   },
   {
     "title": "Towards Smarter Sensing: 2D Clutter Mitigation in RL-Driven Cognitive MIMO Radar",
@@ -251,7 +267,9 @@
         "url": "https://ieeexplore.ieee.org/document/11036963"
       }
     ],
-    "sort_date": "2025-06-03"
+    "sort_date": "2025-06-03",
+    "sketch": "detection",
+    "selected": false
   },
   {
     "title": "Robust Communication Design in RIS-Assisted THz Channels",
@@ -289,7 +307,9 @@
         "url": "https://ieeexplore.ieee.org/document/10883649"
       }
     ],
-    "sort_date": "2025-02-12"
+    "sort_date": "2025-02-12",
+    "sketch": "beam",
+    "selected": false
   },
   {
     "title": "Intermittency Versus Path Loss in RIS-aided THz Communication: A Data Significance Approach",
@@ -327,6 +347,8 @@
         "url": "https://ieeexplore.ieee.org/document/10622760"
       }
     ],
-    "sort_date": "2024-06-09"
+    "sort_date": "2024-06-09",
+    "sketch": "beam",
+    "selected": false
   }
 ]
