@@ -12,7 +12,7 @@ A compact, responsive academic profile, built on the existing Jekyll/AcademicPag
 - Layout and styling: `_layouts/academic.html` and `assets/css/academic.css`.
 - Palette: the navy and teal colors are defined in `assets/css/academic.css`.
 
-The existing portrait is displayed with its embedded credit, © RUB, Marquard. Unused template pages, sample collections, posts, and sample downloads remain in the repository but are excluded from the generated site. `/publications/` redirects to the homepage’s publication section.
+The portrait retains its © RUB, Marquard credit. Display-sized sRGB PNGs remain unchanged; the full-resolution `images/profile.jpg` is excluded from the site build, and social previews use `images/portrait/profile-600.png`. The portrait has no enlargement link. Dragging and the image context menu are discouraged locally, without blocking menus elsewhere or browser zoom. This does not prevent screenshots or access through the public repository. Unused template pages, sample collections, posts, and sample downloads remain in the repository but are excluded from the generated site. `/publications/` redirects to the homepage’s publication section.
 
 ## Blog
 
@@ -40,7 +40,13 @@ The Pages workflow refreshes publications every Monday at 06:17 UTC (07:17 in Be
 
 The updater queries Crossref for published papers and arXiv for preprints. It requires an exact full-name match (`Adam Umra`), or the matching ORCID in Crossref; a conflicting ORCID is rejected. Initial-only author records without an ORCID, records not indexed by these sources, and some title changes may need a manual entry. No paid service or API key is required.
 
-Publications are grouped by publication year and ordered newest first within each year. Sorting uses the publisher publication date (`date`), falling back to the first arXiv release (`preprint_date`), then the known year. Dates retain the precision reported by the source; dates for existing entries were checked against their linked abstract/publisher pages. Set a quoted ISO date (YYYY-MM-DD or YYYY-MM) in the curated data to correct a record.
+The homepage displays five unique **Selected publications**: the two newest by effective date, then the three highest Crossref citation counts among the remaining papers. Count ties use date (newer first), then normalized title (alphabetical). Missing/invalid counts are unknown, not zero; known zero is valid. Unfilled slots use the remaining newest papers. Fewer than five records displays the available records. All papers remain in the archive data.
+
+The existing refresh extracts Crossref `is-referenced-by-count` into `citation_count`, with `citation_source` and `citation_checked` (UTC date). Fresh counts, including decreases and zero, supersede cached counts. Missing responses, arXiv merges, and curated edits preserve previous citation metadata. Counts, ranking labels, and the citation source never appear on the page. On a first refresh failure without any saved counts, selection falls back to recent papers until Crossref succeeds. Jekyll reads only records marked `selected`.
+
+Original decorative SVG sketches are assigned by title/topic (array emulation, denoising, radar/sensing, or beam/communication), with a neutral signal fallback. An optional curated `sketch` can choose `aperture`, `denoising`, `detection`, `beam`, or `signal`. Paper hover and keyboard focus play one short animation; reduced-motion and touch-only browsing keep the static diagrams. Status badges use violet for Preprint and teal for Accepted in both themes.
+
+Selected publications are grouped by publication year and ordered newest first within each year. Sorting uses the publisher publication date (`date`), falling back to the first arXiv release (`preprint_date`), then the known year. Dates retain the precision reported by the source; dates for existing entries were checked against their linked abstract/publisher pages. Set a quoted ISO date (YYYY-MM-DD or YYYY-MM) in the curated data to correct a record.
 
 Records are matched by DOI, arXiv ID, IEEE document ID, or normalized title. DOI identifiers remain in the updater’s metadata for matching, while the page only displays arXiv, IEEE, and publisher/journal destinations. Publisher URLs come from Crossref metadata or known journal article routes; IEEE document IDs are never guessed from DOI suffixes. Existing publications are retained during source outages. Your curated text takes precedence, with additional paper links retained; a curated `Preprint` can automatically gain a verified publication venue and year. Acceptance notices are not inferred from free-text arXiv comments. To suppress a record, add it to `_data/publications.yml` with `hidden: true` and its identifying title/links.
 

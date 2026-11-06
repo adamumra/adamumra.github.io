@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Refresh publication data without scraping Scholar or requiring API keys."""
 import copy
+from datetime import datetime, timezone
 import html
 import json
 import re
@@ -81,7 +82,7 @@ def crossref_records(payload):
         doi = item['DOI'].lower()
         if not re.fullmatch(r'10\.\d{4,9}/\S+', doi):
             continue
-        records.append({
+        paper = {
             'title': clean(item['title'][0]),
             'authors': ', '.join(clean(a.get('given', '') + ' ' + a.get('family', '')) for a in authors),
             'venue': clean((item.get('container-title') or ['Published article'])[0]),
@@ -89,7 +90,12 @@ def crossref_records(payload):
             'date': '-'.join(f'{part:04d}' if i == 0 else f'{part:02d}' for i, part in enumerate(dates[:3])),
             'publisher_url': item.get('resource', {}).get('primary', {}).get('URL', ''),
             'links': [{'label': 'DOI', 'url': 'https://doi.org/' + doi}],
-        })
+        }
+        count = item.get('is-referenced-by-count')
+        if type(count) is int and count >= 0:
+            paper.update(citation_count=count, citation_source='Crossref',
+                         citation_checked=datetime.now(timezone.utc).date().isoformat())
+        records.append(paper)
     return records
 
 
@@ -123,6 +129,16 @@ def arxiv_records(payload):
     return records
 
 
+def citation_metadata(*papers):
+    """First known count wins, including zero; an absent count is not zero."""
+    for paper in papers:
+        count = paper.get('citation_count')
+        if type(count) is int and count >= 0:
+            return {key: paper[key] for key in
+                    ('citation_count', 'citation_source', 'citation_checked') if key in paper}
+    return {}
+
+
 def merge(records, incoming):
     """Coalesce by DOI, arXiv ID, IEEE document ID, or normalized exact title."""
     incoming = copy.deepcopy(incoming)
@@ -137,6 +153,7 @@ def merge(records, incoming):
             matches.append(paper)
             keys |= identifiers(paper)
     combined = incoming
+    citations = citation_metadata(incoming, *matches)
     for paper in matches:
         links = combined['links'] + paper['links']
         metadata = {key: combined.get(key) or paper.get(key) for key in ('date', 'preprint_date', 'publisher_url')}
@@ -146,6 +163,7 @@ def merge(records, incoming):
         combined.update({key: value for key, value in metadata.items() if value})
         combined['links'] = list({link['url']: link for link in links}.values())
         records.remove(paper)
+    combined.update(citations)
     records.append(combined)
 
 
@@ -161,6 +179,7 @@ def reconcile(previous, fetched, curated):
         if paper.get('hidden'):
             continue
         result = copy.deepcopy(paper)
+        result.update(citation_metadata(*matches, paper))
         # Explicit editorial text wins. Only unambiguously published preprints
         # get automatic venue/year/status upgrades.
         published = next((p for p in matches if not p.get('status')), None)
@@ -177,7 +196,48 @@ def reconcile(previous, fetched, curated):
         records.append(result)
     for paper in records:
         prepare_display(paper)
+    select_publications(records)
     return sorted(records, key=lambda p: (int(p['year']), p['sort_date'], normalized(p['title'])), reverse=True)
+
+
+def select_publications(records):
+    """Mark two latest plus three ranked remaining works, then fill unknown slots.
+
+    Run after reconciliation: papers are already deduplicated and hidden works
+    removed. Stable title ordering makes ties independent of API response order.
+    Keep the full archive in the data; only the marked five render on the site.
+    """
+    recent = sorted(records, key=lambda p: normalized(p['title']))
+    recent.sort(key=lambda p: p['sort_date'], reverse=True)
+    chosen = recent[:2]
+    remaining = recent[2:]
+    ranked = [p for p in remaining if citation_metadata(p)]
+    ranked.sort(key=lambda p: p['citation_count'], reverse=True)
+    chosen.extend(ranked[:3])
+    for paper in remaining:
+        if len(chosen) >= 5:
+            break
+        if paper not in chosen:
+            chosen.append(paper)
+    for paper in records:
+        paper['selected'] = paper in chosen
+
+
+def research_sketch(paper):
+    """Topic-based originals, with a neutral diagram for new research areas."""
+    allowed = {'aperture', 'beam', 'detection', 'denoising', 'signal'}
+    if paper.get('sketch') in allowed:
+        return paper['sketch']
+    title = paper['title'].casefold()
+    if any(word in title for word in ('denois', 'noise2noise', 'spectroscopy')):
+        return 'denoising'
+    if any(word in title for word in ('array emulation', 'large-array', 'doa estimation')):
+        return 'aperture'
+    if any(word in title for word in ('radar', 'sensing', 'clutter')):
+        return 'detection'
+    if any(word in title for word in ('ris', 'channel', 'beam', 'communication')):
+        return 'beam'
+    return 'signal'
 
 
 def canonical_reading_link(link):
@@ -230,6 +290,7 @@ def prepare_display(paper):
     canonical = [canonical_reading_link(link) for link in links]
     paper['display_links'] = list({link['url']: link for link in canonical if link}.values())
     paper['sort_date'] = paper.get('date') or paper.get('preprint_date') or str(paper['year'])
+    paper['sketch'] = research_sketch(paper)
 
 
 def main():

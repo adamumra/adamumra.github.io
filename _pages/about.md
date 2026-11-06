@@ -22,12 +22,12 @@ redirect_from:
       <p>I received my B.Sc. in 2021 and M.Sc. in 2023 in Electrical Engineering and Information Technology from Ruhr University Bochum.</p>
     </div>
     <figure class="profile-photo">
-      <a class="profile-photo-link" href="{{ '/images/profile.jpg' | relative_url }}" aria-label="Open Adam Umra’s full-resolution portrait">
+      <div class="profile-photo-frame">
         <img src="{{ '/images/portrait/profile-600.png' | relative_url }}"
           srcset="{{ '/images/portrait/profile-300.png' | relative_url }} 300w, {{ '/images/portrait/profile-600.png' | relative_url }} 600w, {{ '/images/portrait/profile-900.png' | relative_url }} 900w"
           sizes="(max-width: 700px) 270px, 300px"
-          alt="Adam Umra" width="300" height="320" fetchpriority="high">
-      </a>
+          alt="Adam Umra" width="300" height="320" fetchpriority="high" draggable="false">
+      </div>
       <figcaption>&copy; RUB, Marquard</figcaption>
     </figure>
   </div>
@@ -54,9 +54,9 @@ redirect_from:
 </section>
 
 <section aria-labelledby="publications">
-  <h2 id="publications" class="section-heading">Publications</h2>
-  <p class="section-intro">Journal articles, conference papers, and recent preprints. See also my <a href="{{ site.author.googlescholar | escape }}">Google Scholar profile</a>.</p>
-  {% assign publications = site.data.publications_generated | default: site.data.publications %}
+  <h2 id="publications" class="section-heading">Selected publications</h2>
+  <p class="section-intro">See all publications on <a href="{{ site.author.googlescholar | escape }}">Google Scholar</a>.</p>
+  {% assign publications = site.data.publications_generated | where: 'selected', true %}
   {% assign publication_years = publications | group_by: 'year' | sort: 'name' | reverse %}
   {% for year in publication_years %}
   <section class="publication-year" aria-labelledby="publications-{{ year.name }}">
@@ -65,9 +65,11 @@ redirect_from:
     {% assign papers = year.items | sort: 'sort_date' | reverse %}
     {% for paper in papers %}
     <li class="publication">
+      {% include research-sketch.html kind=paper.sketch %}
+      <div class="publication-copy">
       <h4>{{ paper.title | escape }}</h4>
       <p class="publication-authors">{{ paper.authors | escape | replace: 'Adam Umra', '<strong>Adam Umra</strong>' }}</p>
-      <p class="publication-venue"><em>{{ paper.venue | escape }}</em> · {{ paper.year }}{% if paper.status %} <span class="publication-status">{{ paper.status }}</span>{% endif %}</p>
+      <p class="publication-venue"><em>{{ paper.venue | escape }}</em> · {{ paper.year }}{% if paper.status %} <span class="publication-status publication-status--{{ paper.status | slugify }}">{{ paper.status }}</span>{% endif %}</p>
       <ul class="publication-links" aria-label="Links for {{ paper.title | escape }}">
         {% assign reading_links = paper.display_links | default: paper.links %}
         {% for link in reading_links %}
@@ -76,6 +78,7 @@ redirect_from:
         {% endunless %}
         {% endfor %}
       </ul>
+      </div>
     </li>
     {% endfor %}
     </ol>

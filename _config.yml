@@ -23,7 +23,7 @@ repository               : "ayyou176/ayyou176.github.io"
 #               Additional customization can be done by editing /_includes/author-profile.html
 author:
   # Biographic information
-  avatar           : "profile.jpg"
+  avatar           : "portrait/profile-600.png"
   name             : "Adam Umra"
   pronouns         : # example: "she/her"  
   bio              : "PhD student in sensing, communication, and signal processing."
@@ -143,7 +143,7 @@ facebook:
   username               :
   app_id                 :
   publisher              :
-og_image                 : profile.jpg   # Social media default site image (lives in /images/)
+og_image                 : portrait/profile-600.png   # Social media default site image (lives in /images/)
 og_description           :  # Social media default site image description
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
@@ -165,6 +165,8 @@ include:
   - .htaccess
   - _pages
 exclude:
+  # Publish display-sized portraits only; retain the original as a source asset.
+  - images/profile.jpg
   # Unused AcademicPages examples and authoring tools.
   - AGENTS.md
   - scripts
