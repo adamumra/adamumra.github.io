@@ -262,13 +262,6 @@ class SelectionTests(unittest.TestCase):
                 else:
                     self.assertNotIn('citation_count', record)
 
-    def test_unknown_research_gets_neutral_sketch(self):
-        self.assertEqual(sync.research_sketch({'title': 'A new research direction'}), 'signal')
-        self.assertEqual(sync.research_sketch({'title': 'Conditional Diffusion for Large-Array Emulation'}), 'aperture')
-        self.assertEqual(sync.research_sketch({'title': 'Noise2Noise denoising'}), 'denoising')
-        self.assertEqual(sync.research_sketch({'title': 'Radar detection'}), 'detection')
-        self.assertEqual(sync.research_sketch({'title': 'RIS beam steering'}), 'beam')
-
 
 if __name__ == '__main__':
     unittest.main()

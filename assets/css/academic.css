@@ -96,12 +96,11 @@ h1 { font-size: 2rem; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 .4
 .news-list li { padding-left: .2rem; margin: 0 0 .65rem; }
 .news-list time { font-weight: 700; font-size: .94rem; }
 .news-list time::after { content: ": "; }
-.publication-year-heading { margin: 1.6rem 0 1rem; font-size: 1.2rem; color: var(--muted); }
 .section-intro { color: var(--muted); font-size: .94rem; }
 .publication-list, .experience-list { list-style: none; padding: 0; margin: 0; }
 .publication { padding: 0 0 1.2rem; margin: 0 0 1.2rem; border-bottom: 1px solid var(--line); }
 .publication:last-child { border-bottom: 0; }
-h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5; margin: 0 0 .25rem; font-weight: 650; }
+h3, .publication h3, .experience-list h4 { font-size: 1.06rem; line-height: 1.5; margin: 0 0 .25rem; font-weight: 650; }
 .publication p { margin: .1rem 0; }
 .publication-authors, .publication-venue { font-size: .94rem; }
 .publication-venue { color: var(--muted); }
@@ -124,7 +123,7 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
 
   .news-list time { font-size: .86rem; }
   h1 { font-size: 1.9rem; }
-  h3, .publication h4, .experience-list h4 { overflow-wrap: anywhere; }
+  h3, .publication h3, .experience-list h4 { overflow-wrap: anywhere; }
 }
 @media print {
   .site-header, .skip-link, .news-hint { display: none; }
@@ -165,50 +164,13 @@ h3, .publication h4, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
 }
 
 
-/* Five selected papers: original research sketches, quiet at rest. */
-.publication { display: grid; grid-template-columns: 132px minmax(0, 1fr); gap: 26px; padding-bottom: 1.6rem; margin-bottom: 1.6rem; }
-.publication-copy { min-width: 0; }
-.research-sketch { width: 132px; align-self: start; padding-top: 3px; }
-.research-sketch svg { display: block; width: 100%; height: auto; stroke-width: 1.65; stroke-linecap: round; stroke-linejoin: round; }
-.sketch-guide { stroke: var(--divider); stroke-width: 1; }
-.sketch-ink { stroke: var(--ink); }
-.sketch-muted { stroke: var(--muted); stroke-width: 1.2; opacity: .6; }
-.sketch-accent { stroke: var(--link); }
-.sketch-fill { fill: var(--link); opacity: .08; }
-.sketch-point { fill: var(--link); }
-.sketch-echo { opacity: .4; stroke-width: 1; }
-.sketch-turn, .sketch-sweep { transform-origin: 36px 83px; }
-.sketch-sweep { transform-origin: 30px 87px; }
+/* Publication status colors. */
 .publication-status { display: inline-block; border-radius: 5px; padding: 2px 8px; font-weight: 650; letter-spacing: .015em; line-height: 1.5; vertical-align: baseline; }
 .publication-status--preprint { color: var(--preprint-ink); background: var(--preprint-bg); border-color: var(--preprint-border); }
 .publication-status--accepted { color: var(--accepted-ink); background: var(--accepted-bg); border-color: var(--accepted-border); }
-@keyframes sketch-trace { from { stroke-dashoffset: 1; } to { stroke-dashoffset: 0; } }
-@keyframes sketch-steer { 0% { transform: rotate(0); } 45% { transform: rotate(-12deg); } 100% { transform: rotate(0); } }
-@keyframes sketch-scan { 0% { transform: rotate(0); } 60% { transform: rotate(26deg); } 100% { transform: rotate(0); } }
-@keyframes sketch-echo { 0%, 100% { opacity: .4; } 50% { opacity: 1; } }
-@keyframes sketch-clean { 0%, 100% { opacity: .6; } 55% { opacity: .15; } }
-@media (prefers-reduced-motion: no-preference) {
-  .publication:focus-within .sketch-draw path { stroke-dasharray: 1; animation: sketch-trace .8s ease-out both; }
-  .publication:focus-within .sketch-turn { animation: sketch-steer .9s ease-in-out both; }
-  .publication:focus-within .sketch-sweep { animation: sketch-scan 1s ease-in-out both; }
-  .publication:focus-within .sketch-echo { animation: sketch-echo 1s ease-in-out both; }
-  .publication:focus-within .sketch-noise { animation: sketch-clean .8s ease-in-out both; }
-}
-@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
-  .publication:hover .sketch-draw path { stroke-dasharray: 1; animation: sketch-trace .8s ease-out both; }
-  .publication:hover .sketch-turn { animation: sketch-steer .9s ease-in-out both; }
-  .publication:hover .sketch-sweep { animation: sketch-scan 1s ease-in-out both; }
-  .publication:hover .sketch-echo { animation: sketch-echo 1s ease-in-out both; }
-  .publication:hover .sketch-noise { animation: sketch-clean .8s ease-in-out both; }
-}
-@media (max-width: 700px) {
-  .publication { grid-template-columns: 76px minmax(0, 1fr); gap: 16px; }
-  .research-sketch { width: 76px; }
-}
 @media print {
   :root, :root[data-theme="dark"] {
     --preprint-bg: #eee8f7; --preprint-ink: #614482; --preprint-border: #cbb9e0;
     --accepted-bg: #d9eee8; --accepted-ink: #145c51; --accepted-border: #9fcbbc;
   }
-  .research-sketch * { animation: none !important; }
 }
