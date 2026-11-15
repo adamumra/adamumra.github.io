@@ -1,5 +1,27 @@
 [
   {
+    "title": "Neural Multipath Fields for 6G FR3 Digital Twins: Latent Adaptation from Sparse Data",
+    "authors": "Srijita Sanyal, Adam Umra, Aydin Sezgin",
+    "venue": "arXiv",
+    "year": 2026,
+    "status": "Preprint",
+    "preprint_date": "2026-11-09",
+    "links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2611.12425"
+      }
+    ],
+    "display_links": [
+      {
+        "label": "arXiv",
+        "url": "https://arxiv.org/abs/2611.12425"
+      }
+    ],
+    "sort_date": "2026-11-09",
+    "selected": true
+  },
+  {
     "title": "Wideband Channel Measurements in the Lower FR3 Band (6–12 GHz) for Industrial Environments",
     "authors": "Faizan Rauf, Adam Umra, Oways Alsoloh, Aydin Sezgin",
     "venue": "arXiv",
@@ -41,7 +63,7 @@
       }
     ],
     "sort_date": "2026-09-24",
-    "selected": true
+    "selected": false
   },
   {
     "title": "Self-Supervised Noise2Noise-Enhanced Denoising for Continuous-Scan Air-Plasma THz Spectroscopy",
@@ -87,7 +109,7 @@
     ],
     "citation_count": 0,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "date": "2026-06-02",
     "publisher_url": "https://ieeexplore.ieee.org/document/11577477/",
     "display_links": [
@@ -125,7 +147,7 @@
     ],
     "citation_count": 2,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "preprint_date": "2025-11-04",
     "publisher_url": "https://link.springer.com/10.1186/s13638-026-02625-6",
     "display_links": [
@@ -139,7 +161,7 @@
       }
     ],
     "sort_date": "2026-05-12",
-    "selected": true
+    "selected": false
   },
   {
     "title": "Hardware-Efficient Cognitive Radar: Multi-Target Detection with RL-Driven Transmissive RIS",
@@ -163,7 +185,7 @@
     ],
     "citation_count": 0,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "date": "2026-05-03",
     "publisher_url": "https://ieeexplore.ieee.org/document/11461307/",
     "display_links": [
@@ -201,7 +223,7 @@
     ],
     "citation_count": 0,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "date": "2026",
     "publisher_url": "https://ieeexplore.ieee.org/document/11618429/",
     "display_links": [
@@ -259,9 +281,9 @@
         "url": "https://ieeexplore.ieee.org/document/11036963"
       }
     ],
-    "citation_count": 2,
+    "citation_count": 3,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "date": "2025-06-03",
     "publisher_url": "https://ieeexplore.ieee.org/document/11036963/",
     "display_links": [
@@ -275,7 +297,7 @@
       }
     ],
     "sort_date": "2025-06-03",
-    "selected": false
+    "selected": true
   },
   {
     "title": "Robust Communication Design in RIS-Assisted THz Channels",
@@ -303,7 +325,7 @@
     ],
     "citation_count": 13,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "preprint_date": "2024-11-15",
     "publisher_url": "https://ieeexplore.ieee.org/document/10883649/",
     "display_links": [
@@ -345,7 +367,7 @@
     ],
     "citation_count": 4,
     "citation_source": "Crossref",
-    "citation_checked": "2026-11-09",
+    "citation_checked": "2026-11-15",
     "date": "2024-06-09",
     "publisher_url": "https://ieeexplore.ieee.org/document/10622760/",
     "display_links": [
