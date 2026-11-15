@@ -89,9 +89,10 @@ h1 { font-size: 2rem; line-height: 1.25; letter-spacing: -.025em; margin: 0 0 .4
 .profile-links li + li::before, .publication-links li + li::before { content: "|"; color: var(--separator); margin: 0 .65rem; }
 .section-heading { display: flex; align-items: center; gap: 18px; font-size: 1.5rem; line-height: 1.3; margin: 2.2rem 0 1.1rem; letter-spacing: -.015em; }
 .section-heading::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--divider), transparent); }
-.news-box { max-height: 260px; overflow-y: auto; overscroll-behavior-y: contain; padding: 0 12px 0 0; scrollbar-color: var(--scrollbar) var(--scroll-track); scrollbar-width: thin; }
-.news-box:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
-.news-hint { text-align: right; color: var(--muted); font-size: .78rem; margin: -.4rem 0 .6rem; }
+.news-box, .publications-box { max-height: 260px; overflow-y: auto; overscroll-behavior-y: contain; padding: 0 12px 0 0; scrollbar-color: var(--scrollbar) var(--scroll-track); scrollbar-width: thin; }
+.publications-box { max-height: min(520px, 65vh); }
+.news-box:focus-visible, .publications-box:focus-visible { outline: 2px solid var(--link); outline-offset: 4px; }
+.news-hint, .publications-hint { text-align: right; color: var(--muted); font-size: .78rem; margin: -.4rem 0 .6rem; }
 .news-list { list-style: disc; padding: 0 0 0 1.25rem; margin: 0; }
 .news-list li { padding-left: .2rem; margin: 0 0 .65rem; }
 .news-list time { font-weight: 700; font-size: .94rem; }
@@ -126,8 +127,8 @@ h3, .publication h3, .experience-list h4 { font-size: 1.06rem; line-height: 1.5;
   h3, .publication h3, .experience-list h4 { overflow-wrap: anywhere; }
 }
 @media print {
-  .site-header, .skip-link, .news-hint { display: none; }
-  .news-box { max-height: none; overflow: visible; }
+  .site-header, .skip-link, .news-hint, .publications-hint { display: none; }
+  .news-box, .publications-box { max-height: none; overflow: visible; }
   .academic-page { margin: 0 auto; }
   .publication, .experience-list li { break-inside: avoid; }
 }
