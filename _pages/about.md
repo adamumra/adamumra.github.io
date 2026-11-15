@@ -54,9 +54,11 @@ redirect_from:
 </section>
 
 <section aria-labelledby="publications">
-  <h2 id="publications" class="section-heading">Selected publications</h2>
+  <h2 id="publications" class="section-heading">Publications</h2>
   <p class="section-intro">See all publications on <a href="{{ site.author.googlescholar | escape }}">Google Scholar</a>.</p>
-  {% assign publications = site.data.publications_generated | where: 'selected', true | sort: 'sort_date' | reverse %}
+  {% assign publications = site.data.publications_generated | sort: 'sort_date' | reverse %}
+  <p class="publications-hint" id="publications-hint">Newest first · scroll for more ↓</p>
+  <div class="publications-box" role="region" aria-labelledby="publications" aria-describedby="publications-hint" tabindex="0">
   <ol class="publication-list">
     {% for paper in publications %}
     <li class="publication">
@@ -74,6 +76,7 @@ redirect_from:
     </li>
     {% endfor %}
   </ol>
+  </div>
 </section>
 
 <section aria-labelledby="experience">
