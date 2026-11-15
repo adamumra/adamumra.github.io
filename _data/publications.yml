@@ -19,7 +19,7 @@
       url: https://arxiv.org/abs/2609.30562
 - title: "Self-Supervised Noise2Noise-Enhanced Denoising for Continuous-Scan Air-Plasma THz Spectroscopy"
   authors: "Adam Umra, Oways Alsoloh, Oliver Nagy, Aydin Sezgin, Clara Saraceno"
-  venue: "International Workshop on Smart Antennas (WSA)"
+  venue: "International Workshop on Smart Antennas (WSA 2026), Barcelona, Spain"
   year: 2026
   preprint_date: "2026-08-17"
   status: "Accepted"
@@ -28,7 +28,7 @@
       url: https://arxiv.org/abs/2608.16454
 - title: "Short Blocks, Fast Sensing: Finite Blocklength Tradeoffs in RIS-Assisted ISAC"
   authors: "Adam Umra, Kevin Weinberger, Aymen Khaleel, Gerald Enzner, Aydin Sezgin"
-  venue: "IEEE Integrated Sensing and Communication Conference (ISAC)"
+  venue: "IEEE Integrated Sensing and Communication Conference (ISAC 2026), Lisbon, Portugal"
   year: 2026
   preprint_date: "2025-11-04"
   status: "Accepted"
@@ -57,7 +57,7 @@
       url: https://arxiv.org/abs/2511.02672
 - title: "Measurement-Based Validation of Geometry-Driven RIS Beam Steering in Industrial Environments"
   authors: "Adam Umra, Simon Tewes, Niklas Beckmann, Niels König, Aydin Sezgin, Robert Schmitt"
-  venue: "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)"
+  venue: "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit 2026), Málaga, Spain"
   year: 2026
   preprint_date: "2026-02-17"
   links:
@@ -67,7 +67,7 @@
       url: https://arxiv.org/abs/2602.15808
 - title: "Hardware-Efficient Cognitive Radar: Multi-Target Detection with RL-Driven Transmissive RIS"
   authors: "Adam Umra, Aya Mostafa Ahmed, Stefan Roth, Aydin Sezgin"
-  venue: "IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP)"
+  venue: "IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2026), Barcelona, Spain"
   year: 2026
   preprint_date: "2025-09-17"
   links:
@@ -75,7 +75,7 @@
       url: https://ieeexplore.ieee.org/document/11461307
 - title: "Towards Smarter Sensing: 2D Clutter Mitigation in RL-Driven Cognitive MIMO Radar"
   authors: "Adam Umra, Aya Mostafa Ahmed, Aydin Sezgin"
-  venue: "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit)"
+  venue: "European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit 2025), Poznań, Poland"
   year: 2025
   preprint_date: "2025-02-07"
   links:
@@ -93,7 +93,7 @@
       url: https://doi.org/10.1109/OJCOMS.2025.3541315
 - title: "Intermittency Versus Path Loss in RIS-aided THz Communication: A Data Significance Approach"
   authors: "Yasemin Karacora, Adam Umra, Aydin Sezgin"
-  venue: "IEEE International Conference on Communications (ICC), pp. 3414–3419"
+  venue: "IEEE International Conference on Communications (ICC 2024), Denver, USA, pp. 3414–3419"
   year: 2024
   preprint_date: "2024-01-24"
   links:
