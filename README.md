@@ -42,7 +42,7 @@ The updater queries Crossref for published papers and arXiv for preprints. It re
 
 The homepage displays the full merged publication archive in a scrollable, keyboard-focusable region, ordered newest first by `sort_date`. The list uses the News section’s scrollbar and focus styling, with a height capped at 520px or 65% of the viewport. Print styles expand the list so every entry is visible. No five-paper or citation-based filter is applied to the displayed list; existing internal selection metadata is ignored by the page.
 
-Status badges use violet for Preprint and teal for Accepted in both themes. Publications appear in one text-only list, newest first, without year headings or year labels. Sorting uses the publisher publication date (`date`), falling back to the first arXiv release (`preprint_date`), then the known year. Dates retain the precision reported by the source; dates for existing entries were checked against their linked abstract/publisher pages. Set a quoted ISO date (YYYY-MM-DD or YYYY-MM) in the curated data to correct a record.
+Status badges use violet for Preprint and teal for Accepted in both themes. Publications appear in one text-only list, newest first, without year headings. Conference venue lines include the event year and city (including country); journal and arXiv entries retain their existing formatting. Sorting uses the publisher publication date (`date`), falling back to the first arXiv release (`preprint_date`), then the known year. Dates retain the precision reported by the source; dates for existing entries were checked against their linked abstract/publisher pages. Set a quoted ISO date (YYYY-MM-DD or YYYY-MM) in the curated data to correct a record.
 
 Records are matched by DOI, arXiv ID, IEEE document ID, or normalized title. DOI identifiers remain in the updater’s metadata for matching, while the page only displays arXiv, IEEE, and publisher/journal destinations. Publisher URLs come from Crossref metadata or known journal article routes; IEEE document IDs are never guessed from DOI suffixes. Existing publications are retained during source outages. Your curated text takes precedence, with additional paper links retained; a curated `Preprint` can automatically gain a verified publication venue and year. Acceptance notices are not inferred from free-text arXiv comments. To suppress a record, add it to `_data/publications.yml` with `hidden: true` and its identifying title/links.
 
@@ -173,3 +173,14 @@ Unfortunately, one logistical issue with a template theme like Academic Pages th
 ## Pages deployment delays
 
 The deployment action waits up to 30 minutes for GitHub Pages to finish queueing, synchronizing files, and updating the site. The deploy job has a 35-minute limit to leave room for runner setup and cleanup. A successful build followed by a timeout in `deployment_queued`, `syncing_files`, or `updating_pages` indicates that Pages did not finish within the allotted time; increasing the timeout does not repair a stalled Pages service. Check the deployment logs and GitHub Status before retrying.
+
+## Conference venue details
+
+Conference years and cities were checked on 15 November 2026 against the event organizers or IEEE. They are stored in the curated `venue` text so refreshes preserve them:
+
+- [International Workshop on Smart Antennas (WSA 2026), Barcelona, Spain](https://www.cttc.cat/events/wsa26/)
+- [IEEE Integrated Sensing and Communication Conference (ISAC 2026), Lisbon, Portugal](https://signalprocessingsociety.org/index.php/our-story/news-updates/2026/10/register-attend-ieee-conference-integrated-sensing-and-communications-isac)
+- [European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit 2026), Málaga, Spain](https://www.eucnc.eu/about/welcome/)
+- [IEEE International Conference on Acoustics, Speech, and Signal Processing (ICASSP 2026), Barcelona, Spain](https://2026.ieeeicassp.org/venue/)
+- [European Conference on Networks and Communications & 6G Summit (EuCNC/6G Summit 2025), Poznań, Poland](https://www.eucnc.eu/2025/www.eucnc.eu/)
+- [IEEE International Conference on Communications (ICC 2024), Denver, USA](https://www.comsoc.org/conferences-events/ieee-international-conference-communications-2024)
