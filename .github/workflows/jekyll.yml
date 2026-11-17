@@ -82,7 +82,18 @@ jobs:
             git config user.name 'github-actions[bot]'
             git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
             git commit -m "Update publication metadata"
-            git push origin "HEAD:${PUBLICATION_BRANCH}"
+            for attempt in 1 2 3 4; do
+              if git push origin "HEAD:${PUBLICATION_BRANCH}"; then
+                exit 0
+              fi
+              if [ "$attempt" -lt 4 ]; then
+                delay=$((5 * 2 ** (attempt - 1)))
+                echo "Publication data push failed (attempt $attempt/4); retrying in ${delay}s."
+                sleep "$delay"
+              fi
+            done
+            echo "::warning::Publication metadata could not be saved after four attempts. Deploying the successfully built site; the next run will try saving again."
+            echo '⚠️ Publication metadata was refreshed and built, but could not be saved to the repository. Deployment continues; check the push errors above.' >> "$GITHUB_STEP_SUMMARY"
           fi
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v5.0.0
